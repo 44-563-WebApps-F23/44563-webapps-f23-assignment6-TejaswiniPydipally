@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+ <head>
+    <title> sample information</title>
+ </head>
+<body>
+
+<h2> Author entry Tejaswini Pydipally</h2>
+
+<form>
+    <label for="hiddenAuthor">The hidden author name:</label>
+        <input type="password" id="hiddenAuthor" value="Dickens" required><br><br>
+
+        <label for="guessAuthor">Guess the author:</label>
+        <input type="text" id="guessAuthor" required><br><br>
+
+        <input type="button" value="Check the guess" onclick="checkAuthor()">
+</form>
+
+<div id="result">
+    <p>Good guesses: <span id="goodCount">0</span></p>
+    <p>Incorrect guesses: <span id="oopsCount">0</span></p>
+</div>
+<script> 
+
+        var good = 0;
+        var oops = 0;
+        function checkAuthor() {
+            var hiddenAuthor = document.getElementById("hiddenAuthor").value;
+            var guessAuthor = document.getElementById("guessAuthor").value;
+            if (hiddenAuthor === guessAuthor) {
+                good++; 
+                alert("You got it right!");
+            } else {
+                oops++; 
+                alert("Sorry.");
+            }
+            document.getElementById("goodCount").textContent = good;
+            document.getElementById("oopsCount").textContent = oops;
+        }
+</script>
+
+</body>
+</html> 
