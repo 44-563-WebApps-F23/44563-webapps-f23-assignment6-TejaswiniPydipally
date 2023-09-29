@@ -8,11 +8,11 @@
 <h2> Author entry Tejaswini Pydipally</h2>
 
 <form>
-    <label for="hiddenAuthor">The hidden author name:</label>
-        <input type="password" id="hiddenAuthor" value="Dickens" required><br><br>
+    <label for="hiddenAuthorname">The hidden author name:</label>
+        <input type="password" id="hiddenAuthorname" value="Dickens" required><br><br>
 
-        <label for="guessAuthor">Guess the author:</label>
-        <input type="text" id="guessAuthor" required><br><br>
+        <label for="guessAuthorname">Guess the author:</label>
+        <input type="text" id="guessAuthorname" required><br><br>
 
         <input type="button" value="Check the guess" onclick="checkAuthor()">
 </form>
@@ -26,9 +26,9 @@
         var good = 0;
         var oops = 0;
         function checkAuthor() {
-            var hiddenAuthor = document.getElementById("hiddenAuthor").value;
-            var guessAuthor = document.getElementById("guessAuthor").value;
-            if (hiddenAuthor === guessAuthor) {
+            var hiddenAuthor = document.getElementById("hiddenAuthorname").value;
+            var guessAuthor = document.getElementById("guessAuthorname").value;
+            if (hiddenAuthorname === guessAuthorname) {
                 good++; 
                 alert("You got it right!");
             } else {
