@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<body>
+<title>Tejaswini Pydipally cruise html page</title>
+<h2>Tejaswini Pydipally goes on a cruise</h2>
+<form>
+
+    <label for="sharesCabin">
+        <input type="checkbox" id="sharesCabin" value="True"> Shares Cabin
+    </label><br>
+
+<label for="breakfast">
+        <input type="checkbox" id="breakfast" value="True"> Breakfast
+</label><br>
+
+<label for="poolPass">
+      <input type="checkbox" id="poolPass" value="False"> Pool Pass
+</label><br>
+
+</form>
+<button onclick="selectCruise()">Select a cruise</button><br>
+<div id="result"></div>
+<script>
+ let my_cruise = {};
+    function selectCruise() {
+
+        my_cruise = {
+
+            shared: document.getElementById('sharesCabin').checked,
+            breakfast: document.getElementById('breakfast').checked,
+            pool: document.getElementById('poolPass').checked,
+
+        };
+
+           document.getElementById('result').innerHTML = JSON.stringify(my_cruise);
+        }
+
+</script>
+<form>
+
+    <label for="daysInput">Enter the number of days</label>
+     <input type="text" id="daysInput" value=""><br>
+     <br>
+    <label for="priceInput">Enter price</label>
+    <input type="text" id="priceInput" value=""><br>
+    <br>
+    <button onclick="updateCruise()">Update the cruise</button>
+</form>
+<script>
+function updateCruise() {
+    const days = document.getElementById('daysInput').value;
+    const price = document.getElementById('priceInput').value;
+    my_cruise.days = days;
+    my_cruise.price = price;
+    document.getElementById('result').innerHTML = JSON.stringify(my_cruise);
+}
+</script>
+</body>
+</html>
