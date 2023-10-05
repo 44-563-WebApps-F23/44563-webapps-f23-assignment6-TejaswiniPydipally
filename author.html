@@ -1,69 +1,80 @@
 <!DOCTYPE html>
 <html>
- <head>
-    <title> sample information</title>
- </head>
+
+<head>
+  <title> sample information</title>
+</head>
+
 <body>
 
-<h2> Author entry Tejaswini Pydipally</h2>
+  <h2> Author entry Tejaswini Pydipally</h2>
 
-<form>
+  <form>
     <label for="hiddenAuthorname">The hidden author name:</label>
-        <input type="password" id="hiddenAuthorname" value="Dickens" required><br><br>
+    <input type="password" id="hiddenAuthorname" value="Dickens" required><br><br>
 
-        <label for="guessAuthorname">Guess the author:</label>
-        <input type="text" id="guessAuthorname" required><br><br>
+    <label for="guessAuthorname">Guess the author:</label>
+    <input type="text" id="guessAuthorname" required><br><br>
 
-        <input type="button" value="Check the guess" onclick="checkAuthor()">
-</form>
+    <input type="button" value="Check the guess" onclick="checkAuthor()">
+  </form>
 
-<div id="result">
+  <div id="result">
     <p>Good guesses: <span id="goodCount">0</span></p>
     <p>Incorrect guesses: <span id="oopsCount">0</span></p>
-</div>
-<div id="imageContainer">
+  </div>
+  <div id="imageContainer">
     <img id="ParadisecityImage" src="Paradise.jpg" width="100" height="100" onclick="selectImage()">
   </div>
-<script> 
+  <script>
 
-        var good = 0;
-        var oops = 0;
-        var useImage = 1;
-        function checkAuthor() {
-            var hiddenAuthorname = document.getElementById("hiddenAuthorname").value;
-            var guessAuthorname = document.getElementById("guessAuthorname").value;
-            if (hiddenAuthorname === guessAuthorname) {
-                good++; 
-                alert("You got it right!");
-            } else {
-                oops++; 
-                alert("Sorry.");
-            }
-            document.getElementById("goodCount").textContent = good;
-            document.getElementById("oopsCount").textContent = oops;
+    var good = 0;
+    var oops = 0;
+    var useImage = 1;
+    function checkAuthor() {
+      var hiddenAuthorname = document.getElementById("hiddenAuthorname").value;
+      var guessAuthorname = document.getElementById("guessAuthorname").value;
+      if (oops == 7) {
+
+        alert("Sorry, ran out of guesses.");
+
+        document.getElementById("results").innerHTML = "Sorry, ran out of guesses";
+
+        document.getElementById("button").style.visibility = 'hidden';
+      }
+            else if (hiddenAuthorname === guessAuthorname) {
+          good++;
+          alert("You got it right!");
+        } else {
+          oops++;
+          alert("Sorry.");
         }
-        
-        function selectImage() {
-  var imageElement = document.getElementById('ParadisecityImage');
-  
-  switch (useImage) {
-    case 1:
-      imageElement.src = "Youngsville1.jpg";
-      useImage = 2;
-      break;
-    case 2:
-      imageElement.src = "Delta.jpg";
-      useImage = 3;
-      break;
-    case 3:
-      imageElement.src = "Paradise.jpg";
-      useImage = 1;
-      break;
-    default:
-      break;
-  }
-}
-</script>
+        document.getElementById("goodCount").textContent = good;
+        document.getElementById("oopsCount").textContent = oops;
+      }
+
+      function selectImage() {
+        var imageElement = document.getElementById('ParadisecityImage');
+
+        switch (useImage) {
+          case 1:
+            imageElement.src = "Youngsville1.jpg";
+            useImage = 2;
+            break;
+          case 2:
+            imageElement.src = "Delta.jpg";
+            useImage = 3;
+            break;
+          case 3:
+            imageElement.src = "Paradise.jpg";
+            useImage = 1;
+            break;
+          default:
+            break;
+        }
+      }
+  </script>
 
 </body>
-</html> 
+
+</html>
